@@ -1,0 +1,40 @@
+/* Create table about the people and what they do here */
+CREATE TABLE famous_singers (id INTEGER PRIMARY KEY AUTOINCREMENT, first_name TEXT, last_name TEXT);
+
+INSERT INTO famous_singers (first_name, last_name) VALUES ("Sean","Daly");
+INSERT INTO famous_singers (first_name, last_name) VALUES ("Marshall","Mathers");
+INSERT INTO famous_singers (first_name, last_name) VALUES ("Benjamin aka Grieves", "Laub");
+INSERT INTO famous_singers (first_name, last_name) VALUES ("Michael","Dunphy");
+INSERT INTO famous_singers (first_name, last_name) VALUES ("Dylan", "Owens");
+INSERT INTO famous_singers (first_name, last_name) VALUES ("Johnny","Cash");
+INSERT INTO famous_singers (first_name, last_name) VALUES ("Nic","D");
+INSERT INTO famous_singers (first_name, last_name) VALUES ("Jesse","Reyes");
+INSERT INTO famous_singers (first_name, last_name) VALUES ("Sage","Francis");
+INSERT INTO famous_singers (first_name, last_name) VALUES ("Ronnie","Radke");
+
+
+CREATE TABLE singer_genre (id INTEGER PRIMARY KEY AUTOINCREMENT, person_id INTEGER, genre TEXT);
+
+INSERT INTO singer_genre (person_id,genre) VALUES (1, "Alt Hip-Hop");
+INSERT INTO singer_genre (person_id,genre) VALUES (2, "Rap");
+INSERT INTO singer_genre (person_id,genre) VALUES (3, "Alt Hip-Hop");
+INSERT INTO singer_genre (person_id,genre) VALUES (4, "Hip-Hop");
+INSERT INTO singer_genre (person_id,genre) VALUES(5, "Rap");
+INSERT INTO singer_genre (person_id,genre) VALUES (6, "Country");
+INSERT INTO singer_genre (person_id,genre) VALUES (7, "Rap");
+INSERT INTO singer_genre (person_id,genre) VALUES (8,"Hip-Hop");
+INSERT INTO singer_genre (person_id,genre) VALUES (9,"Rap");
+INSERT INTO singer_genre (person_id,genre) VALUES (10,"Rock");
+
+CREATE TABLE favorite_song (id INTEGER PRIMARY KEY AUTOINCREMENT, person_id INTEGER, song TEXT);
+
+INSERT INTO favorite_song (person_id,song) VALUES (1,"Nothing But Sunshine");
+INSERT INTO favorite_song (person_id,song) VALUES(2,"Book Of Rhymes");
+INSERT INTO favorite_song (person_id,song) VALUES(3,"Get Down");
+INSERT INTO favorite_song (person_id,song) VALUES(4,"The Park");
+INSERT INTO favorite_song (person_id,song) VALUES(5,"Young Skins");
+INSERT INTO favorite_song (person_id,song) VALUES(6,"Hurt");
+INSERT INTO favorite_song (person_id,song) VALUES(7,"Serotonin");
+INSERT INTO favorite_song (person_id,song) VALUES(8,"Coffin");
+INSERT INTO favorite_song (person_id,song) VALUES(9,"Stuck");
+INSERT INTO favorite_song (person_id,song) VALUES(10,"Popular Monster");
