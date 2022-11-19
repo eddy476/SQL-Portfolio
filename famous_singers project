@@ -38,3 +38,34 @@ INSERT INTO favorite_song (person_id,song) VALUES(7,"Serotonin");
 INSERT INTO favorite_song (person_id,song) VALUES(8,"Coffin");
 INSERT INTO favorite_song (person_id,song) VALUES(9,"Stuck");
 INSERT INTO favorite_song (person_id,song) VALUES(10,"Popular Monster");
+
+CREATE TABLE stage_name (id INTEGER PRIMARY KEY AUTOINCREMENT, person_id INTEGER, stage_names TEXT);
+
+INSERT INTO stage_name (person_id,stage_names) VALUES (1, "Atmosphere");
+INSERT INTO stage_name (person_id,stage_names) VALUES (2, "Eminem");
+INSERT INTO stage_name (person_id,stage_names) VALUES (3, "GRIEVES");
+INSERT INTO stage_name (person_id,stage_names) VALUES (4, "Early Adopted");
+INSERT INTO stage_name (person_id,stage_names) VALUES (5, "Dylan");
+INSERT INTO stage_name (person_id,stage_names) VALUES (6, "Johnny Cash");
+INSERT INTO stage_name (person_id,stage_names) VALUES (7, "Nic D");
+INSERT INTO stage_name (person_id,stage_names) VALUES (8, "Jesse");
+INSERT INTO stage_name (person_id,stage_names) VALUES (9, "The Grouch");
+INSERT INTO stage_name (person_id,stage_names) VALUES (10, "Falling In Reverse");
+
+/* WHAT ARE THE SINGERS GENRE */
+
+SELECT first_name, last_name, singer_genre.genre as genre FROM famous_singers
+JOIN singer_genre
+ON famous_singers.id = singer_genre.person_id;
+
+/* WHAT ARE THE SINGERS STAGE NAMES? */
+
+SELECT first_name, last_name, stage_name.stage_names AS allias FROM famous_singers
+JOIN stage_name
+ON famous_singers.id = stage_name.person_id; 
+
+/* WHAT ARE THEIR FAVORITE SONGS FROM THEIR OWN MUSIC */
+
+SELECT first_name, last_name, favorite_song.song AS song FROM famous_singers
+JOIN favorite_song
+ON famous_singers.id = favorite_song.person_id;
