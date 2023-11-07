@@ -1,25 +1,26 @@
 --Create a Store database
 
-CREATE TABLE store(id INTEGER PRIMARY KEY, name TEXT, price INTEGER, sold INTEGER, total INTEGER);
+CREATE TABLE eds_photography(id INTEGER PRIMARY KEY, name TEXT, price INTEGER, sold INTEGER, total INTEGER);
 
-INSERT INTO store VALUES (1,"head shot", 10, 40,400);
-INSERT INTO store VALUES (2,"selfie shot", 8, 20, 160);
-INSERT INTO store VALUES (3,"self portrait", 10, 39, 390);
-INSERT INTO store VALUES (4,"animal portraits", 25, 20, 500);
-INSERT INTO store VALUES (5, "family portraits", 30, 29, 870);
-INSERT INTO store VALUES (6,"NSFW photography", 50, 145, 7250);
-INSERT INTO store VALUES (7,"special requests", 80, 49, 3920);
-INSERT INTO store VALUES (8,"baby photo", 30, 274, 8220);
-INSERT INTO store VALUES (9,"graduation photo", 120, 49, 5880);
-INSERT INTO store VALUES (10,"couple shot", 20, 300, 6000);
-INSERT INTO store VALUES (11,"spicy couple photos", 50, 193, 9650);
-INSERT INTO store  VALUES (12,"wedding day", 5000, 12, 50000);
-INSERT INTO store VALUES (13,"bach for him", 99, 30, 2970);
-INSERT INTO store VALUES (14,"bach for her", 130, 122, 15860);
-INSERT INTO store VALUES (15,"vow renewal", 40, 312, 12480);
-INSERT INTO store VALUES (16,"passport shots", 20, 1004, 20080);
+INSERT INTO eds_photography VALUES (1, "head shot",10,100,1000);
+INSERT INTO eds_photography VALUES (2, "selfie shot", 5, 300, 150);
+INSERT INTO eds_photography VALUES (3, "self portrait", 10, 300, 3000);
+INSERT INTO eds_photography VALUES (4, "animal portrait", 25, 100, 2500);
+INSERT INTO eds_photography VALUES (5, "family portraits", 30, 29, 870);
+INSERT INTO eds_photography VALUES (6, "NSFW photography", 50, 145, 7250);
+INSERT INTO eds_photography VALUES (7, "special requests", 80, 50, 4000);
+INSERT INTO eds_photography VALUES (8, "baby photos", 10, 20, 200);
+INSERT INTO eds_photography VALUES (9,"graduation photo", 120, 49, 5880);
+INSERT INTO eds_photography VALUES (10,"couple shot", 20, 300, 6000);
+INSERT INTO eds_photography VALUES (11,"spicy couple photos", 50, 193, 9650);
+INSERT INTO eds_photography  VALUES (12,"wedding day", 5000, 12, 50000);
+INSERT INTO eds_photography VALUES (13,"bach for him", 99, 30, 2970);
+INSERT INTO eds_photography VALUES (14,"bach for her", 130, 122, 15860);
+INSERT INTO eds_photography VALUES (15,"vow renewal", 40, 312, 12480);
+INSERT INTO eds_photography VALUES (16,"passport shots", 20, 1004, 20080);
 
---Display the Database total from store
-SELECT * FROM store
+--Display the Database total from eds_photography
+
+SELECT * FROM eds_photography
 order by price asc;
-SELECT SUM(total) FROM store
+SELECT SUM(total) FROM eds_photography
