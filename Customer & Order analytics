@@ -1,0 +1,55 @@
+--HOW MANY ORDERS WERE PLACED IN JANUARY? (REMEMBER TO FILTER OUT THE BLANKS AND INCORRECT ORDER IDS LIKE WE DID IN THE 'DEALING WITH MESSY DATA' SECTION OF THE PREV LESSON.
+
+SELECT COUNT(orderid) 
+FROM BIT_DB.JanSales
+WHERE length(orderid) = 6
+AND orderID <>'OrderID';
+
+--HOW MANY OF THOSE ORDERS FOR AN IPHONE?
+
+SELECT COUNT(orderID) FROM BIT_DB.JanSales
+WHERE product = 'iPhone'
+AND length(orderid)= 6
+AND orderid <> 'OrderID';
+
+--SELECT THE CUSTOMER ACCOUNT NUMBERS FOR ALL THE ORDERS THAT WERE PLACED IN FEBRUARY
+
+SELECT acctnum
+FROM BIT_DB.customers cust
+INNER JOIN BIT_DB.FebSales feb
+ON cust.order_id=feb.orderid
+WHERE length(orderid)= 6
+AND orderid <> 'OrderID';
+
+--WHICH PRODUCT WAS THE CHEAPEST ONE SOLD IN JANUARY AND WHAT WAS THE PRICE?
+
+SELECT distinct Product, price FROM BIT_DB.JanSales
+WHERE price in (SELECT min(price) FROM BIT_DB.JanSales);
+
+SELECT distinct Product, MIN(price)
+FROM BIT_DB.JanSales
+ORDER BY price ASC LIMIT 1;
+
+--WHAT IS THE TOTAL REVENUE FOR EACH PRODUCT SOLD IN JANUARY (REVENUE CALC USING THE NUMBER OF PRODUCTS SOLD AND THE PRICE OF THE PRODUCTS) 
+
+SELECT product,sum(quantity)* price as revenue
+FROM BIT_DB.JanSales
+GROUP BY product;
+
+--WHICH PRODUCTS WERE SOLD IN FEB AT 548 LINCOLN ST SEATTLE WA. 98101, HOW MANY OF EACH WERE SOLD, AND WHAT WAS THE TOTAL REVENUE?
+
+SELECT sum(Quantity), product, sum(quantity)*price as revenue 
+FROM BIT_DB.FebSales
+WHERE location = '548 Lincoln St, Seattle, WA 98101'
+GROUP BY product;
+
+--HOW MANY CUSTOMERS ORDERED MORE THAN 2 PRODUCTS AT A TIME IN FEB AND WHAT WAS THE AVERAGE AMOUNT SPENT FOR THOSE CUSTOMERS?
+
+
+SELECT count(distinct cust.acctnum), avg(quantity*price)
+FROM BIT_DB.FebSales feb
+LEFT JOIN BIT_DB.customers cust
+ON FEB.orderid=cust.order_id
+WHERE feb.Quantity>2
+AND length(orderid)= 6
+AND orderid <> 'Order ID';
